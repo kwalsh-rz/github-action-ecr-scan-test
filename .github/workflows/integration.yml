@@ -27,4 +27,4 @@ jobs:
           ignoreList: CVE-2022-1234,CVE-2022-4321
       - name: Check outputs
         run: |
-          test "${{ steps.ecr-scan-image.outputs.vulnerabilities }}" == "${{ EXPECTED_VULNERABILITIES }}"
+          test "${{ steps.ecr-scan-image.outputs.vulnerabilities }}" == "${{ env.EXPECTED_VULNERABILITIES }}"
