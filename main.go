@@ -44,12 +44,9 @@ func main() {
 			severity := fmt.Sprintf("%v", finding.Severity)
 			log.Printf("%s: %s: %s\n", *finding.Name, severity, *finding.Description)
 		}
-		fmt.Println("::error::Vulnerabilities found! Please resolve the vulnerabilities or add them to the ignore list")
-		fmt.Printf("::set-output name=vulnerabilities::%d", len(findings))
-
-		log.Printf("::set-output name=vulnerabilities::%d", len(findings))
-		log.Print("\n")
-		log.Fatalf("Vulnerabilities found! Please resolve the vulnerabilities or add them to the ignore list")
+		fmt.Printf("::error::%d Vulnerabilities found! Please resolve the vulnerabilities or add them to the ignore list\n", len(findings))
+		fmt.Printf("::set-output name=vulnerabilities::%d\n", len(findings))
+		log.Fatal()
 	}
 }
 
