@@ -34,7 +34,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           repository: "kwalsh-rz/github-action-ecr-scan-test"
-          token: "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"
+          token: ${{ secrets.PAT }}
           path: github-action
       - name: Evaluate Image Scan
         id: ecr-scan-image2
