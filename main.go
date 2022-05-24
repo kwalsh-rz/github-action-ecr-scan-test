@@ -40,13 +40,13 @@ func main() {
 	}
 
 	if len(findings) > 0 {
-		log.Println("Vulnerabilities found! Please resolve the vulnerabilities or add them to the ignore list")
 		for _, finding := range findings {
 			severity := fmt.Sprintf("%v", finding.Severity)
 			log.Printf("%s: %s: %s\n", *finding.Name, severity, *finding.Description)
 		}
 		log.Printf("::set-output name=vulnerabilities::%d", len(findings))
 		log.Print("\n")
+		log.Fatalf("Vulnerabilities found! Please resolve the vulnerabilities or add them to the ignore list")
 	}
 }
 

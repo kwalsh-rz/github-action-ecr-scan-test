@@ -9,7 +9,7 @@ on:
 env:
   IMAGE_TAG: '3.11-0ccdae'
   REPOSITORY: 'rzsoftware/redzone-deployer'
-  EXPECTED_VULNERABILITIES: '1'
+  EXPECTED_VULNERABILITIES: '2'
 jobs:
   build:
     runs-on: ubuntu-latest
