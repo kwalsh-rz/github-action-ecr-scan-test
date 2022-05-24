@@ -16,6 +16,7 @@ jobs:
     steps:
       - name: Evaluate Image Scan
         id: ecr-scan-image
+        continue-on-error: true
         uses: kwalsh-rz/github-action-ecr-scan-test@main
         with:
           awsRegion: us-east-1
@@ -26,5 +27,6 @@ jobs:
           failThreshold: high
           ignoreList: CVE-2022-1234,CVE-2022-4321
       - name: Check outputs
+        if: steps.ecr-scan-image.outcome == 'failure'
         run: |
           test "${{ steps.ecr-scan-image.outputs.vulnerabilities }}" == "${{ env.EXPECTED_VULNERABILITIES }}"
