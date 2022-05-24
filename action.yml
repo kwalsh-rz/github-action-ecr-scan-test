@@ -1,0 +1,33 @@
+name: "ECR Scan"
+description: "Evaluate ECR Scan for Vulnerabilities"
+author: "Kevin Walsh"
+inputs:
+  awsRegion:
+    description: "The region where the ECR repository is located"
+    required: false
+    default: "us-east-1"
+  awsAccessKey:
+    description: "AWS Access Key with read access to the ECR repository"
+    required: true
+  awsSecretAccessKey:
+    description: "AWS Secret Access Key with read access to the ECR repository"
+    required: true
+  imageTag:
+    description: "Image tag to scan"
+    required: true
+  repository:
+    description: "ECR repository, eg rzsoftware/redzone-deployer"
+    required: true
+  failThreshold:
+    description: "Fail if any vulnerabilities equal to or over this severity level are detected. Valid values: critical, high, medium, low, informational."
+    required: false
+    default: "high"
+  ignoreList:
+    description: "List of CVEs that can be safely ignored and should not fail the scan. List should be separated by commas. eg 'CVE-2022-1234,CVE-2022-4321'"
+    required: false
+outputs:
+  vulnerabilities:
+    description: "The number of vulnerabilities found at or above the specified failure threshold and not included on the ignore list. A value greater than 0 will fail the action."
+runs:
+  using: "docker"
+  image: "Dockerfile"
