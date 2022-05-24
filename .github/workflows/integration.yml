@@ -16,8 +16,7 @@ jobs:
     steps:
       - name: Evaluate Image Scan
         id: ecr-scan-image
-        #uses: rzsoftware/github-action-ecr-scan@main
-        uses: kwalsh-rz/github-action-ecr-scan@main
+        uses: kwalsh-rz/github-action-ecr-scan-test@main
         with:
           awsRegion: us-east-1
           awsAccessKey: ${{ secrets.AWS_ACCESS_KEY_ID }}
