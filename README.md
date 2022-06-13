@@ -30,7 +30,7 @@ Fail if any vulnerabilities equal to or over this severity level are detected. V
 
 ### `ignoreList`
 
-List of CVEs that can be safely ignored and should not fail the scan. List should be separated by commas. eg 'CVE-2022-1234,CVE-2022-4321'
+List of CVEs that can be safely ignored and should not fail the scan. List should be separated by commas. eg 'CVE-2014-54321,CVE-2014-456132'
 
 ## Outputs
 
